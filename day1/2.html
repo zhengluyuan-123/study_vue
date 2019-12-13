@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test vue</title>
+</head>
+<body>
+
+<div id="app">
+    <!-- vue的模板语法，和django的模板语法类似 -->
+    <h2>{{ msg }}</h2> <!-- 放一个变量，会到data属性中去找对应的值 -->
+    <!-- 有人说，我们直接这样写数据不就行吗，但是你注意，我们将来的数据都是从后端动态取出来的，不能写死这些数据啊，你说对不对 -->
+    <h2>{{ 'hello beautiful girl!' }}</h2>  <!-- 直接放一个字符串 -->
+    <h2>{{ 1+1 }}</h2>  <!-- 四则运算 -->
+    <h2>{{ {'name':'chao'} }}</h2> <!-- 直接放一个自定义对象 -->
+    <h2>{{ person.name }}</h2>  <!-- 下面data属性里面的person属性中的name属性的值 -->
+    <h2>{{ 1>2?'真的':'假的' }}</h2>  <!-- js的三元运算 -->
+    <h2>{{ msg2.split('').reverse().join('') }}</h2>  <!-- 字符串反转 -->
+
+
+</div>
+
+<!-- 1.引包 -->
+<script src="../js/vue.js"></script>
+<script>
+//2.实例化对象
+    new Vue({
+        el:'#app',
+        data:{
+            msg:'黄瓜',
+            person:{
+                name:'超',
+            },
+            msg2:'hello Vue'
+        }
+    })
+
+</script>
+</body>
+</html>
