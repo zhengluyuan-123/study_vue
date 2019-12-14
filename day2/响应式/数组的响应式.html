@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item in letters">{{item}}</li>
+
+    </ul>
+    <button @click="btn">按钮</button>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+            letters:['a','b','c','d']
+        },
+        methods:{
+
+
+            btn(){
+
+                //push,可以做到响应式
+                // this.letters.push('as','dd');
+                //unshift从开头添加的元素
+                // this.letters.unshift('aaa');
+
+                //shift删除的开头元素
+                // this.letters.shift('aaa');
+                //pop删除数组最后一个元素
+                // this.letters.pop();
+
+                // 以下都是支持响应式
+                //splice(start,end,修改/替换的个内容)
+                // sort();
+                // reverse();
+
+                // 这是vue内部提供的
+                // vue.set(修改的对象,索引值,修改的内容);
+
+                //索引修改数组,不能做到响应式
+                this.letters[0]='aaa'
+            }
+        }
+    })
+</script>
+</html>

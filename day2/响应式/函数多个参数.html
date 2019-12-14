@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <h1 >{{count}}</h1>
+    <button @click="btn(1,2,3,4,5,6)">多参数相加</button>
+
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+            count:0,
+
+        },
+        methods:{
+            btn(...num){
+                console.log(num);
+                for(let i of num){
+                    this.count=this.count+i;
+                }
+                return this.count
+            }
+        }
+    })
+</script>
+</html>

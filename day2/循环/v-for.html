@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+
+    <!--遍历数组 (item)-->
+    <div>
+        <h2 v-for="i in mov">{{i}}</h2>
+    </div>
+
+
+    <!--遍历数组,索引  (item,index)-->
+    <div>
+        <h2 v-for="i,j in mov">{{j+1}}  {{i}}</h2>
+    </div>
+
+
+    <!--遍历对象 获取value-->
+    <div>
+        <h2 v-for="value in info"> {{value}}</h2>
+    </div>
+
+    <!--遍历对象获取key,value-->
+    <div>
+        <h2 v-for="(value,key) in info"> {{key}}  {{value}}</h2>
+    </div>
+
+    <!--遍历对象获取(key,value,index)-->
+    <div>
+        <h2 v-for="(value,key,index) in info"> {{key}}  {{value}}  {{index}}</h2>
+    </div>
+
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+            mov:['海王','一球成名','nba记事','教父','楚门世界'],
+            info:{
+                name:'zly',
+                age:'21',
+                high:'186cm',
+            }
+        }
+    })
+</script>
+</html>

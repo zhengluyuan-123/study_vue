@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+
+    <!--//input复用,加key标识符区分,若key不一样则不会复用-->
+
+    <span v-if="istrue">
+        <label for="user">用户账号:</label>
+        <input type="text" placeholder="用户账号" id="user" key="username">
+    </span>
+    <span v-else>
+        <label for="email">用户邮箱:</label>
+        <input type="text" placeholder="用户邮箱" id="email" key="email">
+    </span>
+    <span>
+        <button @click="istrue=!istrue">切换登录方式</button>
+    </span>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+            istrue:true
+        }
+    })
+</script>
+</html>

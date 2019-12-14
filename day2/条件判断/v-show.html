@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+
+    <!--//当isShow为false是v-if的标签不会出现在文档中-->
+    <!--而v-show标签会显示在文档中,只是添加了行内样式 style="display:none"-->
+
+    <!--当使用频率很高时,使用v-show,当只有一次切换时,使用v-if-->
+
+    <h1 v-if="isShow">{{message}}</h1>
+    <h1 v-show="isShow">{{message}}</h1>
+
+
+
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            isShow:true
+        }
+    })
+</script>
+</html>

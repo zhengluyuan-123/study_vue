@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--//没有参数,是绑定时间可以省略括号-->
+    <button @click="btnclick">按钮1</button>
+    <button @click="btnclick()">按钮2</button>
+
+    <!--//如何函数需要参数,但没有传入,则为unidenf-->
+    <button @click="btnclick2('有参数3')">按钮3</button>
+    <button @click="btncliak3">按钮4</button>
+    <button @click="btnclick4('abc',$event)">按钮5</button>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+        },
+        methods:{
+        btnclick(){
+            console.log('没有参数');
+        },
+        //如何函数需要参数,但没有传入,则为unidenf
+        btnclick2(a){
+            console.log('------',a);
+        },
+        //在事件定义的时候,写方法是省略小括号,但方法本事是有参数的,
+            //这个时候,vue会默认将浏览器的event事件对象作为参数传入到方法
+        btnclick3(envent){
+            console.log('------',envent);
+        },
+        //定义方法时,我们需要event对象,同时又需要其他参数,则$event事件传入event,这是固定写法.
+        btnclick4(abc,envent){
+            console.log('------',abc,envent);
+        },
+        }
+    })
+</script>
+</html>

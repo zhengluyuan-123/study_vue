@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--<h1>{{message}}</h1>-->
+    <h2 v-if="score>=90">优秀</h2>
+    <h2 v-else-if="score>=80">良好</h2>
+    <h2 v-else-if="score>=70">及格</h2>
+    <h2 v-else>需要努力</h2>
+
+    <h1>{{result}}</h1>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+            score:80,
+        },
+        computed:{
+            result(){
+                let show='';
+                if(this.score>=90){
+                    show='优秀'
+                }else if(this.score>=80){
+                    show='良好'
+                }else{
+                    show='需要努力'
+                }
+                return show
+            }
+        }
+
+    })
+</script>
+</html>

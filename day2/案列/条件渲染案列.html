@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+    {{result}}:<input type="text" :placeholder='result'><button @click="btn">切换登录方式</button>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+            username:'用户账号',
+            email:'用户邮箱',
+            aa:'用户账号'
+        },
+        computed:{
+            result:{
+                get(){
+                    if(this.aa==this.username)
+                    {return this.username}
+                    else{
+                        return this.email
+                    }
+                   },
+                set(value){
+                    console.log('set');
+                    this.aa=value;
+                    console.log(this.aa);
+                }
+            }
+        },
+        methods:{
+            btn(){
+                console.log(this.result);
+                if(this.result==this.username){
+                    console.log('btn if');
+                    this.result=this.email
+                }else{
+                   this.result=this.username
+                }
+                return this.result
+            }
+        }
+    })
+</script>
+</html>

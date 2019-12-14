@@ -12,7 +12,9 @@
 <body>
 <div id="app">
     <ul>
-        <li v-for="(m,i) in mov" ><button v-on:click="addclass(i)" v-bind:class="getclass(i)">{{m}}</button></li>
+        <li v-for="(item,index) in mov" :class="getclass(index)" @click="btn(index)">
+            {{item}}
+        </li>
     </ul>
 </div>
 </body>
@@ -22,13 +24,12 @@
     const app = new Vue({
         el: '#app',
         data: {
-            message: '你好啊',
-            isactive:false,
-            mov:['海贼王','火影忍者','葫芦娃','西游记']
+            mov:['海贼王','火影忍者','葫芦娃','西游记'],
+            currentindex:0,
         },
         methods:{
-           getclass:function (i) {
-               if (i===0){
+           getclass:function (index) {
+               if (index===this.currentindex){
                    return {active:true}
                          }
                else{
@@ -36,18 +37,8 @@
                    }
                },
 
-            addclass:function (i) {
-               this.isactive=!this.isactive;
-                console.log(this.isactive)
-                       return {active:this.isactive}
-                // if (i===0){
-
-               //     return {active:true}
-               //           }
-               // else{
-               //         this.isactive=!this.isactive;
-               //         return {active:this.isactive}
-               //     }
+            btn:function (index) {
+               this.currentindex=index
                }
                },
     })

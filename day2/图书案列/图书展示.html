@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书购物车</title>
+    <link rel="stylesheet" href="book.css">
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <h1>{{message}}</h1>
+    <table border="2px">
+        <thead>
+            <tr>
+                <th></th>
+                <th>书籍名称</th>
+                <th>出版日期</th>
+                <th>价格</th>
+                <th>购买数量</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="(item,index) in books">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.data}}</td>
+                <td>{{item.price | showprice}}</td>
+                <td>{{item.count}}
+                    <button @click="add(index)" >+</button>
+                    <button @click="sub(index)" :disabled="item.count<=0">-</button>
+                </td>
+                <td><button @click="del(index)">移除</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <h1 v-if="books.length==0">该用户没有购买图书</h1>
+        <h1 v-else>{{totle | showprice}}</h1>
+    </div>
+
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script src="bookjs.js"></script>
+
+<script>
+</script>
+</html>
