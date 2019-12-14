@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <h1>{{firstname}} {{lastname}}</h1>
+    <h1 >{{getfullname()}}</h1>
+    <h1 >{{fullname}}</h1>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+            firstname:'郑',
+            lastname:'zly'
+        },
+        //计算属性
+
+        computed:{
+            //方式一
+          // fullname:function () {
+          //     return this.firstname+this.lastname
+          // }
+          //方式二 常用 计算属性一般没有set,只读属性
+            fullname:{
+                get:function () {
+                    return this.firstname+this.lastname
+                },
+                set:function (value) {
+                    const names=value.split(' ');
+                    this.firstname=names[0];
+                    this.lastname=names[1];
+                }
+            }
+        },
+
+        methods:{
+            getfullname:function () {
+                return this.firstname+this.lastname
+            }
+        }
+    })
+</script>
+</html>

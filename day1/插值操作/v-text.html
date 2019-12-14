@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+
+    <!--v-text 可以展示文本标签的内容--但是会覆盖标签原本的内容>
+
+    <!--<h1>{{message}}</h1>-->
+    <h1 v-text="message"></h1>
+    <!--//xxxxxx被覆盖了-->
+    <h1 v-text="message">xxxxxx</h1>
+
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <h2>当前计数{{count}}</h2>
+
+    <!--//方式一:直接在标签写-->
+    <!--<button v-on:click="count++">+</button>-->
+    <!--<button v-on:click="count&#45;&#45;">-</button>-->
+
+
+    <!--//方式二 定义函数-->
+    <!--<button v-on:click="add">+</button>-->
+    <!--<button v-on:click="sub">-</button>-->
+
+    <!--//语法糖简写-->
+    <button @click="add">+</button>
+    <button @click="sub">-</button>
+</div>
+</body>
+<!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>-->
+<script src="../../js/vue.js"></script>
+<script>
+ const app=new Vue({
+     el:'#app',
+     data:{
+         count:0,
+     },
+     methods:{
+         add:function () {
+             this.count++
+         },
+         sub:function () {
+             this.count--
+         }
+     }
+ })
+</script>
+</html>

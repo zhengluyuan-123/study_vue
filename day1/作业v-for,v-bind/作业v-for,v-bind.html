@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(m,i) in mov" ><button v-on:click="addclass(i)" v-bind:class="getclass(i)">{{m}}</button></li>
+    </ul>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+            isactive:false,
+            mov:['海贼王','火影忍者','葫芦娃','西游记']
+        },
+        methods:{
+           getclass:function (i) {
+               if (i===0){
+                   return {active:true}
+                         }
+               else{
+                       return {active:false}
+                   }
+               },
+
+            addclass:function (i) {
+               this.isactive=!this.isactive;
+                console.log(this.isactive)
+                       return {active:this.isactive}
+                // if (i===0){
+
+               //     return {active:true}
+               //           }
+               // else{
+               //         this.isactive=!this.isactive;
+               //         return {active:this.isactive}
+               //     }
+               }
+               },
+    })
+</script>
+</html>

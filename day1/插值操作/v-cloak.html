@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+        /*[v-cloak]{*/
+            /*display: none;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <h1>{{message}}</h1>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script>
+    //在vue解析前,div中有v-cloak属性
+    //在vue解析后,div没有v-cloak属性
+    setTimeout(function () {
+        const app = new Vue({
+            el: '#app',
+            data: {
+            message: '你好啊',
+        }
+    })
+    },3000);
+
+</script>
+</html>

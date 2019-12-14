@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--直接计算,不推荐,代码繁琐,不易读-->
+    <h1>{{firstname}} {{lastname}}</h1>
+    <!--函数的方法,调用多次-->
+    <!--<h1>{{fullname()}}</h1>-->
+    <!--<h1>{{fullname()}}</h1>-->
+    <!--<h1>{{fullname()}}</h1>-->
+    <!--<h1>{{fullname()}}</h1>-->
+    <!--计算属性,vue内部会缓存,推荐-->
+    <h1>{{fullname}}</h1>
+    <h1>{{fullname}}</h1>
+    <h1>{{fullname}}</h1>
+    <h1>{{fullname}}</h1>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+            firstname:'郑',
+            lastname:'禄渊',
+        },
+
+        // methods:{
+        //
+        //     fullname:function () {
+        //         console.log('函数方法');
+        //         return this.firstname+this.lastname
+        //     }
+        // },
+        computed:{
+           fullname:function () {
+               console.log('计算属性');
+                return this.firstname+this.lastname
+            }
+        }
+
+    })
+</script>
+</html>

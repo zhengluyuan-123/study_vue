@@ -12,10 +12,17 @@
     <h1>{{ message }}</h1>
     <h1>{{ name }}</h1>
     <h1>{{ day }}</h1>
+
+    <!--//for循环-->
+    <ul>
+        <li v-for="item in mov">{{item}}</li>
+    </ul>
+
 </div>
 
-<script src="../js/jquery-3.4.1.min.js"></script>
-<script src="../js/vue.js"></script>
+
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/vue.js"></script>
 <!--//day1-->
 <script>
     //声明式编程范式
@@ -24,7 +31,8 @@
         data:{//定义数据
             message:'第一次学习vue',
             name:'郑禄渊',
-            day:'2019/12/13'
+            day:'2019/12/13',
+            mov:['大话西游','盗梦空间','少年派','天气']
         }
     })
 </script>

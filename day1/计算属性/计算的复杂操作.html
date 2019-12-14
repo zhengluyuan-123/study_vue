@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--<h1>{{message}}</h1>-->
+    <h1>{{totleprice}}</h1>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            books:[
+                {id:1,name:'python',price:123},
+                {id:2,name:'java',price:223},
+                {id:3,name:'php',price:134},
+                {id:4,name:'c++',price:193},
+
+        ]
+        },
+        computed:{
+
+            totleprice:function () {
+                let result=0;
+                //方法一
+                // for(let i in this.books){
+                //     result=this.books[i].price+result
+                // }
+                //方法二
+                for(let i of this.books){
+                    result=i.price+result
+                }
+
+                return result
+            }
+        }
+
+    })
+</script>
+</html>

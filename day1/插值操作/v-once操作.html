@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+
+    <!--v-once  只记录第一次的值,后面值变了他也不变,只记录第一次的值-->
+    <!--<h1>{{message}}</h1>-->
+    <!--<h1 v-once>{{message}}</h1>-->
+
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/vue.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',
+        data:{
+            message:'你好啊',
+            firstname:'郑',
+            lastname:'禄渊',
+            count: 100,
+        }
+    })
+</script>
+</html>
